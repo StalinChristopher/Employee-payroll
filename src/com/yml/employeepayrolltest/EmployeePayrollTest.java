@@ -15,21 +15,21 @@ public class EmployeePayrollTest {
 
 	@Test
 	public void givenPathWhenCheckedThenConfirm() throws IOException {
-		// Check if the File exists
+		/* Check if the File exists */
 		Path homePath = Paths.get(HOME);
 		Assert.assertTrue(Files.exists(homePath));
 
-		// Delete File and check file not exists
+		/* Delete the file and check if the file exists or not */
 		Path playPath = Paths.get(HOME + "/" + PLAY_WITH_NIO);
 		if (Files.exists(playPath))
 			FileUtils.deleteFiles(playPath.toFile());
 		Assert.assertTrue(Files.notExists(playPath));
 
-		// Create Directory
+		/* Create a directory */
 		Files.createDirectory(playPath);
 		Assert.assertTrue(Files.exists(playPath));
 
-		// Create File
+		// Create a new file
 		IntStream.range(1, 10).forEach(cntr -> {
 			Path tempFile = Paths.get(playPath + "/temp" + cntr);
 			try {
@@ -41,5 +41,12 @@ public class EmployeePayrollTest {
 		// listing of files
 		Files.list(playPath).filter(Files::isRegularFile).forEach(System.out::println);
 
+	}
+	
+	@Test
+	public void givenADirectoryWhenWatchedListsAllTheActivities() throws IOException {
+		Path dir = Paths.get(HOME + "/" + PLAY_WITH_NIO);
+		Files.list(dir).filter(Files::isRegularFile).forEach(System.out::println);
+		new JavaWatchService(dir).processEvents();
 	}
 }
