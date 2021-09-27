@@ -1,0 +1,3 @@
+EmployeePayroll [id=1, name=John Snow, salary=25000.0]
+EmployeePayroll [id=2, name=Vincent Kompany, salary=40000.0]
+EmployeePayroll [id=3, name=Kevin Hart, salary=35000.0]
