@@ -1,4 +1,4 @@
-package com.yml.employeepayrolltest;
+package com.yml.fileoptest;
 import com.yml.emloyeepayroll.*;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class EmployeePayrollTest {
+public class FileOpTest {
 	private static String HOME = System.getProperty("user.home");
 	private static String PLAY_WITH_NIO = "TempPlayGround";
 
