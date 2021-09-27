@@ -26,4 +26,18 @@ public class EmployeePayrollTest {
 		Assert.assertEquals(3, entryCount);
 		
 	}
+	
+	@Test
+	public void  given3EmployeesWhenreadShouldPrintTheDataInTheConsoleAndVerifyCount() {
+		EmployeePayroll[]  arrayData = {
+				new EmployeePayroll(1, "John Snow", 25000 ),
+				new EmployeePayroll(2, "Vincent Kompany", 40000),
+				new EmployeePayroll(3, "Kevin Hart", 35000)
+			};
+			EmployeePayrollService employeePayrollService = new EmployeePayrollService(Arrays.asList(arrayData));
+			employeePayrollService.writeEmployeePayrollFile();
+			Assert.assertTrue(employeePayrollService.printData());
+			long entryCount = employeePayrollService.countLines();
+			Assert.assertEquals(3, entryCount);
+	}
 }

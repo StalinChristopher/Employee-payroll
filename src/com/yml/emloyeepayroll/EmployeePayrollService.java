@@ -88,5 +88,18 @@ public class EmployeePayrollService {
 		System.out.println(entries);
 		return entries;
 	}
+	
+	/**
+	 * Method to read the data from the file and print it into the console
+	 */
+	public boolean printData() {
+		try {
+			Files.lines(new File(PAYROLL_FILENAME).toPath()).forEach(System.out::println);
+			return true;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 }
